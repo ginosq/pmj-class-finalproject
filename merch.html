@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Final Project for HTML5/CSS3 Course">
+  <meta name="keywords" content="HTML,CSS,JavaScript,jQuery">
+  <meta name="author" content="GinoSquadrito">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PM JukeBox Shop Page</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon-16x16.png">
+  <link rel="stylesheet" type="text/css" href="./assets/stylesheets/normalize.css" />
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./assets/stylesheets/flexboxgrid.min.css" />
+  <link rel="stylesheet" type="text/css" href="./assets/stylesheets/styles.css" />
+</head>
+<body class="homepage">
+  <div class="header">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4">
+          <a href="index.html"><img class="logo" src="./assets/images/home/pmj-logo.png" alt="pmj text logo" /></a>
+          <div id="MenuIcon" class="mobile-menu-icon">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <nav id="MainMenu" class="col-xs-12 col-sm-8">
+          <a href="about.html">ABOUT</a>
+          <a href="discography.html">DISCO</a>
+          <a href="media.html">MEDIA</a>
+          <a href="merch.html">SHOP</a>
+          <a href="tour-dates.html">TOUR</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <main>
+    <div class="page-banner merch-banner">
+
+      <img class="home-logo animate-fader" src="./assets/images/merch/pmj-shoplogo.svg" alt="PMJ Shop Logo"/>
+
+      <h1 class="secondary-font banner-title"></h1>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <ul class="merch-controls">
+            <li data-filter="all">
+              <button class="merch-ctrl-btn active all-icon">ALL ITEMS</button>
+            </li>
+            <li data-filter="topwear">
+              <button class="merch-ctrl-btn">
+                <span>WEARABLES</span>
+                <img src="./assets/images/merch/icons/wear-icon.svg" />
+              </button>
+            </li>
+
+            <li data-filter="headwear">
+              <button class="merch-ctrl-btn headwear-icon">
+                <span>BUNDLES</span>
+                <img src="./assets/images/merch/icons/bundles-icon.svg" />
+              </button>
+            </li>
+
+            <li data-filter="accessories">
+              <button class="merch-ctrl-btn accessories-icon">
+                <span>ACCESSORIES</span>
+                <img src="./assets/images/merch/icons/accessories-icon.svg" />
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="filtr-container row">
+        <div class="col-xs-12 col-sm-4 col-md-3 filtr-item --sold-out" data-category="topwear" data-sort="value">
+          <img
+            class="image-responsive"
+            src="./assets/images/merch/topwear/pmj-bluegold-shirt.png"
+            alt="Blue-Gold T-Shirt with PMJ logo"
+          />
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-3 filtr-item --sold-out" data-category="headwear" data-sort="value">
+          <img
+            class="image-responsive"
+            src="./assets/images/merch/headwear/pmjshirt-cd.png"
+            alt="Bundle shirt + essentials cd"
+          />
+        </div>
+
+
+        <div class="col-xs-12 col-sm-4 col-md-3 filtr-item --sold-out" data-category="accessories" data-sort="value">
+          <img
+            class="image-responsive"
+            src="./assets/images/merch/accessories/pmj-bag.png"
+            alt="Black tote bag with PMJ logo"
+          />
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-3 filtr-item --sold-out" data-category="topwear" data-sort="value">
+          <img
+            class="image-responsive"
+            src="./assets/images/merch/topwear/ladys-blue-shirt.png"
+            alt="Ladys blue shirt with PMJ logo"
+          />
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-3 filtr-item --sold-out" data-category="headwear" data-sort="value">
+          <img
+            class="image-responsive"
+            src="./assets/images/merch/headwear/pmj-deluxe.png"
+            alt="PMJ deluxe set music collection"
+          />
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-3 filtr-item --sold-out" data-category="accessories" data-sort="value">
+          <img
+            class="image-responsive"
+            src="./assets/images/merch/accessories/pmj-poster.png"
+            alt="Classic collection of 3 PMJ posters"
+          />
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-3 filtr-item --sold-out" data-category="topwear" data-sort="value">
+          <img
+            class="image-responsive"
+            src="./assets/images/merch/topwear/pmj-maroon-shirt.png"
+            alt="Maroon PMJ shirt with vibes brand name"
+          />
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+<script src="./assets/javascripts/jquery-3.3.1.min.js"></script>
+<script src="./assets/javascripts/jquery.filterizr.min.js"></script>
+<script src="./assets/javascripts/lodash.js"></script>
+<script src="./assets/javascripts/mobile-menu.js"></script>
+<script>
+  $(document).ready(function() {
+    $('.filtr-container').filterizr({});
+    $('.merch-ctrl-btn').click(function(){
+      if($(this).hasClass('active')){
+        return false;
+      } else {
+        $('.merch-ctrl-btn').removeClass('active');
+        $(this).addClass('active');
+      }
+    })
+  });
+</script>
+
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <link href="./assets/stylesheets/lightbox.min.css" rel="stylesheet" />
+
+
+  <meta name="description" content="Final Project for HTML5/CSS3 Course">
+  <meta name="keywords" content="HTML,CSS,JavaScript,jQuery">
+  <meta name="author" content="GinoSquadrito">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PM JukeBox Media Page</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon-16x16.png">
+  <link rel="stylesheet" type="text/css" href="./assets/stylesheets/normalize.css" />
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./assets/stylesheets/flexboxgrid.min.css" />
+  <link rel="stylesheet" type="text/css" href="./assets/stylesheets/styles.css" /
+
+  >
+</head>
+<body class="homepage">
+  <div class="header">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4">
+          <a href="index.html"><img class="logo" src="./assets/images/home/pmj-logo.png" alt="pmj text logo" /></a>
+          <div id="MenuIcon" class="mobile-menu-icon">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <nav id="MainMenu" class="col-xs-12 col-sm-8">
+          <a href="about.html">ABOUT</a>
+          <a href="discography.html">DISCO</a>
+          <a href="media.html">MEDIA</a>
+          <a href="merch.html">SHOP</a>
+          <a href="tour-dates.html">TOUR</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <main>
+    <div class="page-banner media-banner">
+      <h1 class="secondary-font banner-title"></h1>
+    </div>
+    <div class="container">
+      <h1>Photos</h1>
+
+      <!-- Images used to open the lightbox -->
+      <div class="row">
+        <div class="column">
+          <img src="./assets/images/media/lightbox/1.jpg" onclick="openModal();currentSlide(1)" class="hover-shadow">
+        </div>
+        <div class="column">
+          <img src="./assets/images/media/lightbox/2.jpg" onclick="openModal();currentSlide(2)" class="hover-shadow">
+        </div>
+        <div class="column">
+          <img src="./assets/images/media/lightbox/3.jpg" onclick="openModal();currentSlide(3)" class="hover-shadow">
+        </div>
+        <div class="column">
+          <img src="./assets/images/media/lightbox/4.jpg" onclick="openModal();currentSlide(4)" class="hover-shadow">
+        </div>
+      </div>
+
+      <!-- The Modal/Lightbox -->
+      <div id="myModal" class="modal">
+        <span class="close cursor" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+
+          <div class="mySlides">
+            <div class="numbertext">1 / 4</div>
+            <img src="./assets/images/media/lightbox/1-wide.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">2 / 4</div>
+            <img src="./assets/images/media/lightbox/2-wide.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">3 / 4</div>
+            <img src="./assets/images/media/lightbox/3-wide.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">4 / 4</div>
+            <img src="./assets/images/media/lightbox/4-wide.jpg" style="width:100%">
+          </div>
+
+          <!-- Next/previous controls -->
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+          <!-- Caption text -->
+          <div class="caption-container">
+            <p id="caption"></p>
+          </div>
+
+          <!-- Thumbnail image controls -->
+          <div class="column">
+            <img class="demo" src="./assets/images/media/lightbox/1.jpg" onclick="currentSlide(1)" alt="FANTASTIC SHOW">
+          </div>
+
+          <div class="column">
+            <img class="demo" src="./assets/images/media/lightbox/2.jpg" onclick="currentSlide(2)" alt="ENERGETIC">
+          </div>
+
+          <div class="column">
+            <img class="demo" src="./assets/images/media/lightbox/3.jpg" onclick="currentSlide(3)" alt="GREAT SINGERS">
+          </div>
+
+          <div class="column">
+            <img class="demo" src="./assets/images/media/lightbox/4.jpg" onclick="currentSlide(4)" alt="FUN">
+          </div>
+        </div>
+      </div>
+
+      <script>
+// Open the Modal
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
+}
+
+// Close the Modal
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+
+
+      <h1>Videos</h1>
+      <div class="media-list">
+        <iframe width="500" height="315" src="https://www.youtube.com/embed/m3lF2qEA2cw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <iframe width="500" height="315" src="https://www.youtube.com/embed/8gO_lxThc1M" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <iframe width="500" height="315" src="https://www.youtube.com/embed/6fAK0MHs4xE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <iframe width="500" height="315" src="https://www.youtube.com/embed/OtDDuZqGrXE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+
+    </div>
+  </main>
+</body>
+<script src="./assets/javascripts/jquery-3.3.1.min.js"></script>
+<script src="./assets/javascripts/lightbox.min.js"></script>
+<script src="./assets/javascripts/lodash.js"></script>
+<script src="./assets/javascripts/mobile-menu.js"></script>
+</html>

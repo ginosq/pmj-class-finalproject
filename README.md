@@ -1,2 +1,2 @@
-# pmj-class-finalproject
-Postmodern Jukebox
+# class-directory
+ Class Final Project
